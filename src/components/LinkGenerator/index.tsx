@@ -42,7 +42,7 @@ const LinkGenerator = () => {
     AOS.init();
   }, []);
 
-  const notify = () => toast.success('Link Copiado');
+  const notify = () => toast.success('Copied Link');
 
   return (
     <div>
@@ -59,7 +59,7 @@ const LinkGenerator = () => {
           <Image
             src='/logo.png'
             width={300}
-            height={100}
+            height={95}
             alt=''
             data-aos='zoom-in'
             data-aos-delay='50'
@@ -68,7 +68,7 @@ const LinkGenerator = () => {
 
           <input
             type='text'
-            placeholder='(91) 993444646'
+            placeholder='Phone'
             onChange={(e) => setPhone(e.target.value)}
           />
           <textarea
@@ -77,7 +77,7 @@ const LinkGenerator = () => {
             cols={30}
             rows={10}
             onChange={(e) => setText(e.target.value)}
-            placeholder='Escreva aqui'
+            placeholder='Type here...'
           ></textarea>
           {showLink ? (
             <div>
