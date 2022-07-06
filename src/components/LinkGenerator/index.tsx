@@ -45,16 +45,16 @@ const LinkGenerator = () => {
   const notify = () => toast.success('Copied Link');
 
   return (
-    <div>
+    <div >
       <ToastContainer position='bottom-right' newestOnTop />
 
       <div
         className={styles.container}
-        data-aos='fade-in'
-        data-aos-delay='50'
-        data-aos-duration='2500'
+        
       >
-        <div className={styles.form}>
+        <div className={styles.form} data-aos='fade-in'
+    data-aos-delay='50'
+    data-aos-duration='2500'>
           <Image
             src='/logo.png'
             width={300}
@@ -64,19 +64,16 @@ const LinkGenerator = () => {
             data-aos-delay='50'
             data-aos-duration='2500'
           />
+          <label>Phone </label>
 
-          <input
-            type='text'
-            placeholder='Phone'
-            onChange={(e) => setPhone(e.target.value)}
-          />
+          <input type='text' onChange={(e) => setPhone(e.target.value)} />
+          <label>Text </label>
           <textarea
             name=''
             id=''
             cols={30}
             rows={10}
             onChange={(e) => setText(e.target.value)}
-            placeholder='Type here...'
           ></textarea>
           {showLink ? (
             <div>
@@ -91,6 +88,7 @@ const LinkGenerator = () => {
                 </div>
               ) : (
                 <div className={styles.link}>
+                  <label>Your link:</label>
                   <h3>{link}</h3> <div className={styles.buttons}></div>
                 </div>
               )}
@@ -124,6 +122,9 @@ const LinkGenerator = () => {
               <></>
             )}
           </div>
+          <p className={styles.made}>
+        Made with ❤️ by <a href="https://instagram.com/gomestzx">gomestzx</a>
+      </p>
         </div>
       </div>
     </div>
