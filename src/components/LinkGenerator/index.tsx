@@ -28,8 +28,8 @@ const LinkGenerator = () => {
       setLink(response.data.link);
       console.log(response.data);
       setLoading(false);
-    } catch {
-      alert('Error');
+    } catch (err) {
+      alert(err);
     }
   };
 
@@ -46,15 +46,14 @@ const LinkGenerator = () => {
 
   return (
     <div>
-        <ToastContainer position="bottom-right" newestOnTop />
+      <ToastContainer position='bottom-right' newestOnTop />
+
       <div
         className={styles.container}
         data-aos='fade-in'
         data-aos-delay='50'
         data-aos-duration='2500'
       >
-        
-        
         <div className={styles.form}>
           <Image
             src='/logo.png'
@@ -112,14 +111,13 @@ const LinkGenerator = () => {
                 {loading ? (
                   <></>
                 ) : (
-                    <>
-                  <CopyToClipboard text={link}>
-                    <button className={styles.copy} onClick={notify}>COPY</button>
-                    
-                  </CopyToClipboard>
-                  
+                  <>
+                    <CopyToClipboard text={link}>
+                      <button className={styles.copy} onClick={notify}>
+                        COPY
+                      </button>
+                    </CopyToClipboard>
                   </>
-                  
                 )}
               </div>
             ) : (
@@ -128,7 +126,6 @@ const LinkGenerator = () => {
           </div>
         </div>
       </div>
-      
     </div>
   );
 };

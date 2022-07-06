@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const key = '8b1668bc91db1b51d54700077725fd58a155ffc0';
+const key = process.env.NEXT_PUBLIC_API_KEY;
 
 const bitly = axios.create({
   baseURL: 'https://api-ssl.bitly.com/v4',
