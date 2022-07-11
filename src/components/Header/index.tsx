@@ -5,7 +5,9 @@ import style from './styles.module.scss';
 const Header = () => {
   return (
     <div className={style.header}>
-      <Link href='http://github.com/gomestzx'>Source code 🚀</Link>
+      <Link href='https://github.com/gomestzx/wathsapp-link-with-bitly'>
+        Source code 🚀
+      </Link>
     </div>
   );
 };
