@@ -45,16 +45,16 @@ const LinkGenerator = () => {
   const notify = () => toast.success('Copied Link');
 
   return (
-    <div >
+    <div>
       <ToastContainer position='bottom-right' newestOnTop />
 
-      <div
-        className={styles.container}
-        
-      >
-        <div className={styles.form} data-aos='fade-in'
-    data-aos-delay='50'
-    data-aos-duration='2500'>
+      <div className={styles.container}>
+        <div
+          className={styles.form}
+          data-aos='fade-in'
+          data-aos-delay='50'
+          data-aos-duration='2500'
+        >
           <Image
             src='/logo.png'
             width={300}
@@ -123,8 +123,9 @@ const LinkGenerator = () => {
             )}
           </div>
           <p className={styles.made}>
-        Made with ❤️ by <a href="https://instagram.com/gomestzx">gomestzx</a>
-      </p>
+            Made with ❤️ by{' '}
+            <a href='https://gomestzx.github.io/'>gomestzx</a>
+          </p>
         </div>
       </div>
     </div>
