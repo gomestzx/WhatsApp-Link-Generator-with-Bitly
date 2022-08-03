@@ -2,16 +2,15 @@ import React, { useState, useEffect } from 'react';
 import styles from './styles.module.scss';
 import api from '../../services/api';
 import ReactLoading from 'react-loading';
-import Image from 'next/image';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+
 
 const LinkGenerator = () => {
   const [phone, setPhone] = useState<string>('');
   const [text, setText] = useState('');
+  const [textCopy, setTextCopy] = useState<string>('Copy');
   const [showLink, setShowLink] = useState<boolean>(false);
   const [link, setLink] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(true);
@@ -42,12 +41,15 @@ const LinkGenerator = () => {
     AOS.init();
   }, []);
 
-  const notify = () => toast.success('Copied Link');
+  const Copy = () => {
+    setTextCopy('Copied 🎉');
+    setTimeout(() => {
+      setTextCopy('Copy');
+    }, 2500);
+  };
 
   return (
     <div>
-      <ToastContainer position='bottom-right' newestOnTop />
-
       <div className={styles.container}>
         <div
           className={styles.form}
@@ -55,15 +57,6 @@ const LinkGenerator = () => {
           data-aos-delay='50'
           data-aos-duration='2500'
         >
-          <Image
-            src='/logo.png'
-            width={300}
-            height={95}
-            alt=''
-            data-aos='zoom-in'
-            data-aos-delay='50'
-            data-aos-duration='2500'
-          />
           <label>Phone </label>
 
           <input type='text' onChange={(e) => setPhone(e.target.value)} />
@@ -81,14 +74,14 @@ const LinkGenerator = () => {
                 <div className={styles.loading}>
                   <ReactLoading
                     type={'spin'}
-                    color={'#EE6123'}
+                    color={'#0137be'}
                     height={'10%'}
                     width={'10%'}
                   />
                 </div>
               ) : (
                 <div className={styles.link}>
-                  <label>Your link:</label>
+                  <label>Your link 👇</label>
                   <h3>{link}</h3> <div className={styles.buttons}></div>
                 </div>
               )}
@@ -102,7 +95,7 @@ const LinkGenerator = () => {
                 generator();
               }}
             >
-              GET LINK
+              Get link
             </button>
             {showLink ? (
               <div>
@@ -111,8 +104,8 @@ const LinkGenerator = () => {
                 ) : (
                   <>
                     <CopyToClipboard text={link}>
-                      <button className={styles.copy} onClick={notify}>
-                        COPY
+                      <button className={styles.copy} onClick={Copy}>
+                        {textCopy}
                       </button>
                     </CopyToClipboard>
                   </>
@@ -123,8 +116,8 @@ const LinkGenerator = () => {
             )}
           </div>
           <p className={styles.made}>
-            Made with ❤️ by{' '}
-            <a href='https://gomestzx.github.io/'>gomestzx</a>
+            Made with ❤️ by
+            <a href='https://gomestzx.github.io/'> gomestzx</a>
           </p>
         </div>
       </div>
