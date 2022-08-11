@@ -5,7 +5,7 @@ import ReactLoading from 'react-loading';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-
+import Image from 'next/image';
 
 const LinkGenerator = () => {
   const [phone, setPhone] = useState<string>('');
@@ -14,6 +14,7 @@ const LinkGenerator = () => {
   const [showLink, setShowLink] = useState<boolean>(false);
   const [link, setLink] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(true);
+  const [alertText, setAlertText] = useState<string>('');
 
   let url = `https://api.whatsapp.com/send?phone=${phone}${
     text.length > 0 ? '&text=' + text : ''
@@ -33,6 +34,10 @@ const LinkGenerator = () => {
   };
 
   function generator() {
+    if (phone.length <= 8) {
+      return setAlertText('preencha o número corretamente');
+    }
+    setAlertText('');
     setShowLink(true);
     short();
   }
@@ -51,74 +56,84 @@ const LinkGenerator = () => {
   return (
     <div>
       <div className={styles.container}>
-        <div
-          className={styles.form}
-          data-aos='fade-in'
-          data-aos-delay='50'
-          data-aos-duration='2500'
-        >
-          <label>Phone </label>
-
-          <input type='text' onChange={(e) => setPhone(e.target.value)} />
-          <label>Text </label>
-          <textarea
-            name=''
-            id=''
-            cols={30}
-            rows={10}
-            onChange={(e) => setText(e.target.value)}
-          ></textarea>
-          {showLink ? (
-            <div>
-              {loading ? (
-                <div className={styles.loading}>
-                  <ReactLoading
-                    type={'spin'}
-                    color={'#0137be'}
-                    height={'10%'}
-                    width={'10%'}
-                  />
-                </div>
-              ) : (
-                <div className={styles.link}>
-                  <label>Your link 👇</label>
-                  <h3>{link}</h3> <div className={styles.buttons}></div>
-                </div>
-              )}
+        <div className={styles.row}>
+          <h1 className={styles.title}>WathsLink</h1>
+          <div
+            className={styles.form}
+            data-aos='fade-in'
+            data-aos-delay='50'
+            data-aos-duration='2500'
+          >
+            <div className={styles.flexLabel}>
+              <label>Número</label>
+              <label>Ex: 993444646</label>
             </div>
-          ) : (
-            <></>
-          )}
-          <div className={styles.buttons}>
-            <button
-              onClick={() => {
-                generator();
-              }}
-            >
-              Get link
-            </button>
+
+            <input type='text' onChange={(e) => setPhone(e.target.value)} />
+            <div className={styles.flexLabel}>
+              <label>Text</label>
+              <label>Não é obrigatório ⚠️</label>
+            </div>
+            <textarea
+              name=''
+              id=''
+              cols={30}
+              rows={10}
+              onChange={(e) => setText(e.target.value)}
+            ></textarea>
             {showLink ? (
-              <div>
+              <>
                 {loading ? (
-                  <></>
+                  <div className={styles.loading}>
+                    <ReactLoading
+                      type={'spin'}
+                      color={'#0137be'}
+                      height={'10%'}
+                      width={'10%'}
+                    />
+                  </div>
                 ) : (
-                  <>
-                    <CopyToClipboard text={link}>
-                      <button className={styles.copy} onClick={Copy}>
-                        {textCopy}
-                      </button>
-                    </CopyToClipboard>
-                  </>
+                  <div className={styles.link}>
+                    <label>Seu link 👉</label>
+                    <h3>{link}</h3>
+                  </div>
                 )}
-              </div>
+              </>
             ) : (
               <></>
             )}
+            <div className={styles.buttons}>
+              <button
+                onClick={() => {
+                  generator();
+                }}
+              >
+                Gerar Link 🚀
+              </button>
+
+              {showLink ? (
+                <div>
+                  {loading ? (
+                    <></>
+                  ) : (
+                    <>
+                      <CopyToClipboard text={link}>
+                        <button className={styles.copy} onClick={Copy}>
+                          {textCopy}
+                        </button>
+                      </CopyToClipboard>
+                    </>
+                  )}
+                </div>
+              ) : (
+                <></>
+              )}
+            </div>
+            <div className={styles.alert}>{alertText}</div>
           </div>
-          <p className={styles.made}>
-            Made with ❤️ by
-            <a href='https://gomestzx.github.io/'> gomestzx</a>
-          </p>
+        </div>
+        <div className={styles.row}>
+          <Image width={446} height={328} src='/banner.png' alt='banner' />
         </div>
       </div>
     </div>

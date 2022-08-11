@@ -7,7 +7,6 @@ import LinkGenerator from '../components/LinkGenerator';
 const Home: NextPage = () => {
   return (
     <div className={styles.container}>
-      <Header />
       <LinkGenerator />
     </div>
   );

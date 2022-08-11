@@ -6,7 +6,7 @@ const Header = () => {
   return (
     <div className={style.header}>
       <Link href='https://github.com/gomestzx/wathsapp-link-with-bitly'>
-        Source code 🚀
+        Código fonte
       </Link>
     </div>
   );
