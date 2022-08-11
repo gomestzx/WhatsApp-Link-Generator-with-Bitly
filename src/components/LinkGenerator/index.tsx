@@ -10,7 +10,7 @@ import Image from 'next/image';
 const LinkGenerator = () => {
   const [phone, setPhone] = useState<string>('');
   const [text, setText] = useState('');
-  const [textCopy, setTextCopy] = useState<string>('Copy');
+  const [textCopy, setTextCopy] = useState<string>('Copiar');
   const [showLink, setShowLink] = useState<boolean>(false);
   const [link, setLink] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(true);
@@ -47,9 +47,9 @@ const LinkGenerator = () => {
   }, []);
 
   const Copy = () => {
-    setTextCopy('Copied 🎉');
+    setTextCopy('Link copiado 🎉');
     setTimeout(() => {
-      setTextCopy('Copy');
+      setTextCopy('Copiar');
     }, 2500);
   };
 
