@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import React, { useState, useEffect } from 'react';
 import styles from './styles.module.scss';
 import api from '../../services/api';
@@ -5,7 +6,6 @@ import ReactLoading from 'react-loading';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import Image from 'next/image';
 
 const LinkGenerator = () => {
   const [phone, setPhone] = useState<string>('');
@@ -56,14 +56,15 @@ const LinkGenerator = () => {
   return (
     <div>
       <div className={styles.container}>
-        <div className={styles.row}>
+        <div
+          className={styles.row}
+          data-aos='fade-in'
+          data-aos-delay='50'
+          data-aos-duration='2500'
+        >
           <h1 className={styles.title}>WathsLink</h1>
-          <div
-            className={styles.form}
-            data-aos='fade-in'
-            data-aos-delay='50'
-            data-aos-duration='2500'
-          >
+          <p>Crie seu link profissional com um click!</p>
+          <div className={styles.form}>
             <div className={styles.flexLabel}>
               <label>Número</label>
               <label>Ex: 993444646</label>
@@ -132,8 +133,13 @@ const LinkGenerator = () => {
             <div className={styles.alert}>{alertText}</div>
           </div>
         </div>
-        <div className={styles.row}>
-          <Image width={446} height={328} src='/banner.png' alt='banner' />
+        <div
+          className={styles.row}
+          data-aos='fade-left'
+          data-aos-delay='50'
+          data-aos-duration='2500'
+        >
+          <img src='./banner.png' alt='' />
         </div>
       </div>
     </div>
