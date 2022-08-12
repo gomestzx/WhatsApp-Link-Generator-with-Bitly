@@ -62,7 +62,7 @@ const LinkGenerator = () => {
           data-aos-delay='50'
           data-aos-duration='2500'
         >
-          <h1 className={styles.title}>WathsLink</h1>
+          <h1 className={styles.title}> WhatsLink</h1>
           <p>Crie seu link profissional com um click!</p>
           <div className={styles.form}>
             <div className={styles.flexLabel}>
