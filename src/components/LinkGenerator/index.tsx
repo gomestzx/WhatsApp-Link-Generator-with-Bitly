@@ -54,7 +54,9 @@ const LinkGenerator = () => {
   };
 
   return (
-    <div>
+    <div className={styles.app}>
+      <h1 className={styles.title}>WhatsLinks</h1>
+      <p>Crie seu link profissional com apenas um click!</p>
       <div className={styles.container}>
         <div
           className={styles.row}
@@ -62,8 +64,6 @@ const LinkGenerator = () => {
           data-aos-delay='50'
           data-aos-duration='2500'
         >
-          <h1 className={styles.title}> WhatsLink</h1>
-          <p>Crie seu link profissional com um click!</p>
           <div className={styles.form}>
             <div className={styles.flexLabel}>
               <label>Número</label>
@@ -85,14 +85,7 @@ const LinkGenerator = () => {
             {showLink ? (
               <>
                 {loading ? (
-                  <div className={styles.loading}>
-                    <ReactLoading
-                      type={'spin'}
-                      color={'#0137be'}
-                      height={'10%'}
-                      width={'10%'}
-                    />
-                  </div>
+                  <></>
                 ) : (
                   <div className={styles.link}>
                     <label>Seu link 👉</label>
@@ -109,7 +102,18 @@ const LinkGenerator = () => {
                   generator();
                 }}
               >
-                Gerar Link 🚀
+                Gerar Link{' '}
+                {loading && showLink ? (
+                  <ReactLoading
+                    type={'spin'}
+                    color={'#fff'}
+                    height={'20px'}
+                    width={'20px'}
+                    className={styles.spin}
+                  />
+                ) : (
+                  <></>
+                )}
               </button>
 
               {showLink ? (
