@@ -20,6 +20,14 @@ const LinkGenerator = () => {
     text.length > 0 ? '&text=' + text : ''
   }`;
 
+  const maskPhone = (value: any) => {
+    return value
+      .replace(/\D/g, '')
+      .replace(/(\d{2})(\d)/, '($1) $2')
+      .replace(/(\d{5})(\d)/, '$1-$2')
+      .replace(/(-\d{4})(\d+?)$/, '$1');
+  };
+
   const short = async () => {
     try {
       const response = await api.post('/shorten', {
@@ -55,7 +63,7 @@ const LinkGenerator = () => {
 
   return (
     <div className={styles.app}>
-      <h1 className={styles.title}>WhatsLinks</h1>
+      <h1 className={styles.title}>WhatLink</h1>
       <p>Crie seu link profissional com apenas um click!</p>
       <div className={styles.container}>
         <div
@@ -67,10 +75,14 @@ const LinkGenerator = () => {
           <div className={styles.form}>
             <div className={styles.flexLabel}>
               <label>Número</label>
-              <label>Ex: 993444646</label>
             </div>
 
-            <input type='text' onChange={(e) => setPhone(e.target.value)} />
+            <input
+              type='text'
+              onChange={(e) => setPhone(maskPhone(e.target.value))}
+              value={phone}
+              placeholder='(DDD) 0 0000-0000'
+            />
             <div className={styles.flexLabel}>
               <label>Text</label>
               <label>Não é obrigatório ⚠️</label>
@@ -81,6 +93,7 @@ const LinkGenerator = () => {
               cols={30}
               rows={10}
               onChange={(e) => setText(e.target.value)}
+              placeholder='Escreva seu texto aqui...'
             ></textarea>
             {showLink ? (
               <>
