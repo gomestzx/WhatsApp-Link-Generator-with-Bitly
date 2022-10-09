@@ -6,15 +6,19 @@ import ReactLoading from 'react-loading';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { useLinkContext } from '../../hooks/useLinkContext';
+
+
 
 const LinkGenerator = () => {
-  const [phone, setPhone] = useState<string>('');
-  const [text, setText] = useState('');
   const [textCopy, setTextCopy] = useState<string>('Copiar');
   const [showLink, setShowLink] = useState<boolean>(false);
-  const [link, setLink] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(true);
   const [alertText, setAlertText] = useState<string>('');
+
+  /* Link Context */
+
+  const {phone, setPhone, text, setText, link, setLink} = useLinkContext()
 
   let url = `https://api.whatsapp.com/send?phone=${phone}${
     text.length > 0 ? '&text=' + text : ''
