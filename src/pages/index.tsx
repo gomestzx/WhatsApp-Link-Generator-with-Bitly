@@ -5,15 +5,14 @@ import LinkGenerator from '../components/LinkGenerator';
 import { SEO } from '../components/SEO';
 import { LinkProvider } from '../context/LinkContext';
 
-
-
 const Home: NextPage = () => {
   return (
     <LinkProvider>
-    <div className={styles.container}>
-      <SEO title='Gerador de link para WhatsApp' />
-      <LinkGenerator />
-    </div>
+      <div className={styles.container}>
+        <SEO title='Gerador de link para WhatsApp' />
+        <Header />
+        <LinkGenerator />
+      </div>
     </LinkProvider>
   );
 };

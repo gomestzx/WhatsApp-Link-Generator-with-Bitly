@@ -55,6 +55,14 @@ const LinkGenerator = () => {
     short();
   }
 
+  function reset() {
+    setLink('');
+    setShowLink(false);
+    setPhone('');
+    setText('');
+    setLoading(true);
+  }
+
   const customStyles = {
     content: {
       top: '50%',
@@ -67,7 +75,6 @@ const LinkGenerator = () => {
       backgroundColor: '#1F2029',
       borderRadius: '8px',
       overlay: { background: '#000' },
-      
     },
   };
 
@@ -139,24 +146,35 @@ const LinkGenerator = () => {
               <></>
             )}
             <div className={styles.buttons}>
-              <button
-                onClick={() => {
-                  generator();
-                }}
-              >
-                Gerar Link{' '}
-                {loading && showLink ? (
-                  <ReactLoading
-                    type={'spin'}
-                    color={'#fff'}
-                    height={'20px'}
-                    width={'20px'}
-                    className={styles.spin}
-                  />
-                ) : (
-                  <></>
-                )}
-              </button>
+              {!link ? (
+                <button
+                  onClick={() => {
+                    generator();
+                  }}
+                >
+                  Gerar Link{' '}
+                  {loading && showLink ? (
+                    <ReactLoading
+                      type={'spin'}
+                      color={'#fff'}
+                      height={'20px'}
+                      width={'20px'}
+                      className={styles.spin}
+                    />
+                  ) : (
+                    <></>
+                  )}
+                </button>
+              ) : (
+                <button
+                  onClick={() => {
+                    reset();
+                  }}
+                  className={styles.reset}
+                >
+                  ou gerar um novo link
+                </button>
+              )}
 
               {showLink ? (
                 <>
@@ -164,7 +182,9 @@ const LinkGenerator = () => {
                     <></>
                   ) : (
                     <>
-                      <button className={styles.qr} onClick={openModal}>Gerar QR Code</button>
+                      <button className={styles.qr} onClick={openModal}>
+                        Gerar QR Code
+                      </button>
                       <CopyToClipboard text={link}>
                         <button className={styles.copy} onClick={Copy}>
                           {textCopy}
@@ -195,7 +215,7 @@ const LinkGenerator = () => {
         style={customStyles}
         contentLabel='Example Modal'
       >
-        <ModalQR onClick={closeModal} value={link} />  
+        <ModalQR onClick={closeModal} value={link} />
       </Modal>
     </div>
   );

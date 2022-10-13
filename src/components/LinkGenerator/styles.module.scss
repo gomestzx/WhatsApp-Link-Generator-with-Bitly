@@ -153,6 +153,20 @@
             background-color: #d70977;
           }
         }
+        .reset {
+          background-color: transparent;
+          margin: 0px;
+          padding: 0;
+          font-weight: 500;
+          width: auto;
+          color: #bcc0c4;
+          font-size: 15px;
+          border-bottom: 2px solid #bcc0c4;
+          border-radius: 0;
+          &:hover {
+            background-color: transparent;
+          }
+        }
       }
     }
 
