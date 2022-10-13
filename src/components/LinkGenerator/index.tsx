@@ -7,18 +7,19 @@ import { CopyToClipboard } from 'react-copy-to-clipboard';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useLinkContext } from '../../hooks/useLinkContext';
-
-
+import Modal from 'react-modal';
+import ModalQR from '../ModalQR';
 
 const LinkGenerator = () => {
   const [textCopy, setTextCopy] = useState<string>('Copiar');
   const [showLink, setShowLink] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(true);
   const [alertText, setAlertText] = useState<string>('');
+  const [modalIsOpen, setIsOpen] = React.useState(false);
 
   /* Link Context */
 
-  const {phone, setPhone, text, setText, link, setLink} = useLinkContext()
+  const { phone, setPhone, text, setText, link, setLink } = useLinkContext();
 
   let url = `https://api.whatsapp.com/send?phone=${phone}${
     text.length > 0 ? '&text=' + text : ''
@@ -52,6 +53,30 @@ const LinkGenerator = () => {
     setAlertText('');
     setShowLink(true);
     short();
+  }
+
+  const customStyles = {
+    content: {
+      top: '50%',
+      left: '50%',
+      right: 'auto',
+      bottom: 'auto',
+      marginRight: '-50%',
+      transform: 'translate(-50%, -50%)',
+      padding: '0px',
+      backgroundColor: '#1F2029',
+      borderRadius: '8px',
+      overlay: { background: '#000' },
+      
+    },
+  };
+
+  function openModal() {
+    setIsOpen(true);
+  }
+
+  function closeModal() {
+    setIsOpen(false);
   }
 
   useEffect(() => {
@@ -88,7 +113,7 @@ const LinkGenerator = () => {
               placeholder='(DDD) 0 0000-0000'
             />
             <div className={styles.flexLabel}>
-              <label>Text</label>
+              <label>Texto</label>
               <label>Não é obrigatório ⚠️</label>
             </div>
             <textarea
@@ -134,11 +159,12 @@ const LinkGenerator = () => {
               </button>
 
               {showLink ? (
-                <div>
+                <>
                   {loading ? (
                     <></>
                   ) : (
                     <>
+                      <button className={styles.qr} onClick={openModal}>Gerar QR Code</button>
                       <CopyToClipboard text={link}>
                         <button className={styles.copy} onClick={Copy}>
                           {textCopy}
@@ -146,7 +172,7 @@ const LinkGenerator = () => {
                       </CopyToClipboard>
                     </>
                   )}
-                </div>
+                </>
               ) : (
                 <></>
               )}
@@ -163,6 +189,14 @@ const LinkGenerator = () => {
           <img src='./banner.png' alt='' />
         </div>
       </div>
+      <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        style={customStyles}
+        contentLabel='Example Modal'
+      >
+        <ModalQR onClick={closeModal} value={link} />  
+      </Modal>
     </div>
   );
 };

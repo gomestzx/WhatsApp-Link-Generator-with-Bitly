@@ -12,7 +12,6 @@ const Home: NextPage = () => {
     <LinkProvider>
     <div className={styles.container}>
       <SEO title='Gerador de link para WhatsApp' />
-      <Header />
       <LinkGenerator />
     </div>
     </LinkProvider>

@@ -1,15 +1,19 @@
 .header {
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100vw;
-    margin: 0;
-    background-color: #1F2029;
-    padding: 8px;
-    color: #fff;
-    font-weight: 500;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  margin: 0;
+  background: #12c2e9;
+  background: -webkit-linear-gradient(to right, #f64f59, #c471ed, #12c2e9);
+  background: linear-gradient(to right, #f64f59, #c471ed, #12c2e9);
+  padding: 8px;
+  color: #fff;
+  font-weight: 500;
+  a {
+    margin: 0px 8px;
   }
-  
+}

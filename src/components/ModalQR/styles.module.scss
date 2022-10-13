@@ -1,0 +1,55 @@
+.modal {
+  padding: 20px;
+  padding-top: 0px;
+  .headerModal {
+    margin: 10px 0px;
+    display: flex;
+    justify-content: flex-end;
+    button {
+      background-color: transparent;
+      border: 0;
+      font-weight: 400;
+      cursor: pointer;
+      color: #fff;
+      font-size: 20px;
+      font-family: 'Poppins', -apple-system, BlinkMacSystemFont, Segoe UI,
+        Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
+        sans-serif;
+    }
+  }
+  .contentModal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 8px;
+  }
+
+  .buttons {
+    margin-top: 20px;
+    button {
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 200px;
+      margin: 5px;
+      border: 0;
+      border-radius: 8px;
+      padding: 15px;
+      background-color: #865aed;
+      box-shadow: rgb(0 0 0 / 15%) 0px 11px 28px;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 500;
+      font-family: 'Poppins', -apple-system, BlinkMacSystemFont, Segoe UI,
+        Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
+        sans-serif;
+      &:hover {
+        background-color: #744ad4;
+      }
+    }
+  }
+}

@@ -5,8 +5,8 @@ import style from './styles.module.scss';
 const Header = () => {
   return (
     <div className={style.header}>
-      <Link href='https://github.com/gomestzx/wathsapp-link-with-bitly'>
-        Código fonte ⚡
+      <Link href=''>
+        Confira o gerador de Button Floater para sites ⚡
       </Link>
     </div>
   );
