@@ -429,6 +429,11 @@ caniuse-lite@^1.0.30001332:
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001363.tgz#26bec2d606924ba318235944e1193304ea7c4f15"
   integrity sha512-HpQhpzTGGPVMnCjIomjt+jvyUu8vNFo3TaDiZ/RcoTrlOq/5+tC8zHdsbgFB6MxmaY+jCpsH09aD80Bb4Ow3Sg==
 
+canvas-to-image@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/canvas-to-image/-/canvas-to-image-2.2.0.tgz#6499ef16f058aaaa9d7eaf66344b1b19a73078ad"
+  integrity sha512-B75aD8NNrbRpt7YbqNRBdhpVBnmo9sDpIoZHKtxecmRUS+gqg374dDwvPiowZ1qTk3aDz2rsTPBugClyiDx8+w==
+
 chalk@^4.0.0:
   version "4.1.2"
   resolved "https://registry.yarnpkg.com/chalk/-/chalk-4.1.2.tgz#aac4e2b7734a740867aeb16bf02aad556a1e7a01"

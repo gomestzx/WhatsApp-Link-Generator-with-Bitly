@@ -9,14 +9,14 @@ interface IModalQR {
 }
 
 const ModalQR = (props: IModalQR) => {
-  const ref = createRef<HTMLDivElement>(null);
-  const [takeScreenShot] = useScreenshot({
-    type: 'image/jpeg',
-    quality: 1.0,
+  const ref = createRef(null);
+  const [image, takeScreenShot] = useScreenshot({
+    type: "image/jpeg",
+    quality: 1.0
   });
 
-  const download = (image: any, { name = 'img', extension = 'jpg' } = {}) => {
-    const a = document.createElement('a');
+  const download = (image, { name = "img", extension = "jpg" } = {}) => {
+    const a = document.createElement("a");
     a.href = image;
     a.download = createFileName(extension, name);
     a.click();
