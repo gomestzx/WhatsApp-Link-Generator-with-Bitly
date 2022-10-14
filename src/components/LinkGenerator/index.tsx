@@ -21,7 +21,7 @@ const LinkGenerator = () => {
 
   const { phone, setPhone, text, setText, link, setLink } = useLinkContext();
 
-  let url = `https://api.whatsapp.com/send?phone=${phone}${
+  let url = `https://api.whatsapp.com/send?phone=${phone.replace(/[^0-9]/g, '')}${
     text.length > 0 ? '&text=' + text : ''
   }`;
 
@@ -75,7 +75,7 @@ const LinkGenerator = () => {
       backgroundColor: '#1F2029',
       borderRadius: '8px',
       overlay: { background: '#000' },
-      border: '0'
+      border: '0',
     },
   };
 
@@ -98,13 +98,13 @@ const LinkGenerator = () => {
     }, 2500);
   };
 
+  console.log(phone)
+
   return (
     <div className={styles.app}>
       <h1 className={styles.title}>WhatLink</h1>
       <p>Crie seu link profissional com apenas um click!</p>
       <div className={styles.container}>
-
-        
         <div
           className={styles.row}
           data-aos='fade-in'

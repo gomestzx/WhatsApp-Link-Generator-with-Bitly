@@ -5,8 +5,8 @@ import style from './styles.module.scss';
 const Header = () => {
   return (
     <div className={style.header}>
-      <Link href=''>
-        Confira o gerador de Button Floater para sites ⚡
+      <Link href='https://github.com/gomestzx/WhatsApp-Link-Generator-with-Bitly'>
+        Confira o código fonte do projeto ⚡
       </Link>
     </div>
   );
