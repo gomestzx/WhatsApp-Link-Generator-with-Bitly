@@ -75,6 +75,7 @@ const LinkGenerator = () => {
       backgroundColor: '#1F2029',
       borderRadius: '8px',
       overlay: { background: '#000' },
+      border: '0'
     },
   };
 
@@ -216,6 +217,7 @@ const LinkGenerator = () => {
         onRequestClose={closeModal}
         style={customStyles}
         contentLabel='Example Modal'
+        overlayClassName={styles.overlayModal}
       >
         <ModalQR onClick={closeModal} value={link} />
       </Modal>
