@@ -1,15 +1,10 @@
 import { QRCodeSVG } from 'qrcode.react';
-import React, { createRef, useState } from 'react';
+import React, { createRef } from 'react';
 import { useScreenshot, createFileName } from 'use-react-screenshot';
 import styles from './styles.module.scss';
 
-interface IModalQR {
-  onClick(e: any): void;
-  value: string;
-}
-
-const ModalQR = (props: IModalQR) => {
-  const ref = createRef(null);
+const ModalQR = (props) => {
+  const ref = createRef<HTMLDivElement>(null);
   const [image, takeScreenShot] = useScreenshot({
     type: "image/jpeg",
     quality: 1.0

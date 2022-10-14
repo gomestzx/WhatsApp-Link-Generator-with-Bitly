@@ -8,7 +8,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useLinkContext } from '../../hooks/useLinkContext';
 import Modal from 'react-modal';
-import ModalQR from '../ModalQR';
+import ModalQR from '../ModalQR/index.jsx';
 
 const LinkGenerator = () => {
   const [textCopy, setTextCopy] = useState<string>('Copiar');
