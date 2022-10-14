@@ -102,6 +102,8 @@ const LinkGenerator = () => {
       <h1 className={styles.title}>WhatLink</h1>
       <p>Crie seu link profissional com apenas um click!</p>
       <div className={styles.container}>
+
+        
         <div
           className={styles.row}
           data-aos='fade-in'

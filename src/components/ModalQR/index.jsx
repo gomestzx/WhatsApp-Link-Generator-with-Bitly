@@ -4,7 +4,7 @@ import { useScreenshot, createFileName } from 'use-react-screenshot';
 import styles from './styles.module.scss';
 
 const ModalQR = (props) => {
-  const ref = createRef<HTMLDivElement>(null);
+  const ref = createRef(null);
   const [image, takeScreenShot] = useScreenshot({
     type: "image/jpeg",
     quality: 1.0
