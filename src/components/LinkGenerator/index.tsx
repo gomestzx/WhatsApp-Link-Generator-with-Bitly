@@ -48,7 +48,7 @@ const LinkGenerator = () => {
   };
 
   function generator() {
-    if (phone.length <= 15) {
+    if (phone.length <= 14) {
       return setAlertText('preencha o número corretamente');
     }
     setAlertText('');
