@@ -15,15 +15,16 @@ const LinkGenerator = () => {
   const [showLink, setShowLink] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(true);
   const [alertText, setAlertText] = useState<string>('');
-  const [modalIsOpen, setIsOpen] = React.useState(false);
+  const [modalIsOpen, setIsOpen] = useState<boolean>(false);
 
   /* Link Context */
 
   const { phone, setPhone, text, setText, link, setLink } = useLinkContext();
 
-  let url = `https://api.whatsapp.com/send?phone=${phone.replace(/[^0-9]/g, '')}${
-    text.length > 0 ? '&text=' + text : ''
-  }`;
+  let url = `https://api.whatsapp.com/send?phone=${phone.replace(
+    /[^0-9]/g,
+    '',
+  )}${text.length > 0 ? '&text=' + text : ''}`;
 
   const maskPhone = (value: any) => {
     return value
@@ -47,7 +48,7 @@ const LinkGenerator = () => {
   };
 
   function generator() {
-    if (phone.length <= 8) {
+    if (phone.length <= 15) {
       return setAlertText('preencha o número corretamente');
     }
     setAlertText('');
@@ -98,12 +99,12 @@ const LinkGenerator = () => {
     }, 2500);
   };
 
-  console.log(phone)
+  console.log(phone);
 
   return (
     <div className={styles.app}>
       <h1 className={styles.title}>WhatLink</h1>
-      <p>Crie seu link profissional com apenas um click!</p>
+      <p>Crie seu link profissional para WhatsApp!</p>
       <div className={styles.container}>
         <div
           className={styles.row}
@@ -112,28 +113,35 @@ const LinkGenerator = () => {
           data-aos-duration='2500'
         >
           <div className={styles.form}>
-            <div className={styles.flexLabel}>
-              <label>Número</label>
-            </div>
+            {!link ? (
+              <>
+                <div className={styles.flexLabel}>
+                  <label>Número</label>
+                </div>
 
-            <input
-              type='text'
-              onChange={(e) => setPhone(maskPhone(e.target.value))}
-              value={phone}
-              placeholder='(DDD) 0 0000-0000'
-            />
-            <div className={styles.flexLabel}>
-              <label>Texto</label>
-              <label>Não é obrigatório ⚠️</label>
-            </div>
-            <textarea
-              name=''
-              id=''
-              cols={30}
-              rows={10}
-              onChange={(e) => setText(e.target.value)}
-              placeholder='Escreva seu texto aqui...'
-            ></textarea>
+                <input
+                  type='text'
+                  onChange={(e) => setPhone(maskPhone(e.target.value))}
+                  value={phone}
+                  placeholder='(DDD) 0 0000-0000'
+                />
+                <div className={styles.flexLabel}>
+                  <label>Texto</label>
+                  <label>Não é obrigatório ⚠️</label>
+                </div>
+                <textarea
+                  name=''
+                  id=''
+                  cols={30}
+                  rows={10}
+                  onChange={(e) => setText(e.target.value)}
+                  placeholder='Escreva seu texto aqui...'
+                ></textarea>
+              </>
+            ) : (
+              <></>
+            )}
+
             {showLink ? (
               <>
                 {loading ? (
@@ -141,7 +149,7 @@ const LinkGenerator = () => {
                 ) : (
                   <div className={styles.link}>
                     <label>Seu link 👉</label>
-                    <h3>{link}</h3>
+                    <a href={link} target="_blank" rel="noreferrer">{link}</a>
                   </div>
                 )}
               </>
@@ -169,14 +177,7 @@ const LinkGenerator = () => {
                   )}
                 </button>
               ) : (
-                <button
-                  onClick={() => {
-                    reset();
-                  }}
-                  className={styles.reset}
-                >
-                  ou gerar um novo link
-                </button>
+                <></>
               )}
 
               {showLink ? (
@@ -185,6 +186,14 @@ const LinkGenerator = () => {
                     <></>
                   ) : (
                     <>
+                      <button
+                        onClick={() => {
+                          reset();
+                        }}
+                        className={styles.reset}
+                      >
+                        ou gerar um novo link
+                      </button>
                       <button className={styles.qr} onClick={openModal}>
                         Gerar QR Code
                       </button>

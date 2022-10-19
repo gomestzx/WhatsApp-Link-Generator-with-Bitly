@@ -173,6 +173,9 @@
     .row:nth-child(1) {
       background-color: #1f2029;
       border-radius: 12px;
+      @media screen and (max-width: 1048px) {
+        background-color: transparent;
+      }
     }
 
     .row:nth-child(2) {
@@ -197,7 +200,7 @@
         justify-content: center;
       }
 
-      h3 {
+      a {
         margin-top: 2px;
         margin-bottom: 5px;
         color: #865aed;
