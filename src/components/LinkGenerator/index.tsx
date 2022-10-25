@@ -99,12 +99,10 @@ const LinkGenerator = () => {
     }, 2500);
   };
 
-  console.log(phone);
-
   return (
     <div className={styles.app}>
-      <h1 className={styles.title}>WhatLink</h1>
-      <p>Crie seu link profissional para WhatsApp!</p>
+      <h1 className={styles.title}>Crie seu link profissional</h1>
+      <h1 className={styles.title}>para WhatsApp!</h1>
       <div className={styles.container}>
         <div
           className={styles.row}
