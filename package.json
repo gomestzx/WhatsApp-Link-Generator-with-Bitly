@@ -14,6 +14,7 @@
     "@types/react-modal": "^3.13.1",
     "aos": "^3.0.0-beta.6",
     "axios": "^0.27.2",
+    "bootstrap": "^5.2.3",
     "canvas-to-image": "^2.2.0",
     "html2canvas": "^1.4.1",
     "next": "12.2.0",

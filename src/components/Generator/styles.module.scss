@@ -1,0 +1,125 @@
+.app {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .title {
+    text-align: center;
+    font-size: 50px;
+    margin: 0;
+    color: #494848;
+    line-height: 120%;
+    @media screen and (max-width: 800px) {
+      font-size: 30px;
+    }
+  }
+  span {
+    color: #009f6a;
+  }
+
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    flex-wrap: wrap;
+    padding: 0;
+    .row {
+      margin: 0px 40px;
+      .form {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        border-radius: 10px;
+        padding: 30px;
+        @media screen and (max-width: 400px) {
+          padding: 0px;
+        }
+        .copy {
+          background-color: #865aed;
+
+          font-weight: 500;
+          color: #fff;
+          &:hover {
+            background-color: #744ad4;
+          }
+        }
+        .qr {
+          background-color: #000;
+
+          font-weight: 500;
+          color: #fff;
+          &:hover {
+            background-color: #181111;
+          }
+        }
+        .reset {
+          background-color: transparent;
+          margin: 0px;
+          padding: 0;
+          font-weight: 500;
+          width: auto;
+          color: #181111;
+          font-size: 15px;
+          border-radius: 0;
+          border: 0;
+          box-shadow: none;
+          &:hover {
+            background-color: transparent;
+          }
+        }
+      }
+    }
+
+    .row:nth-child(2) {
+      @media screen and (max-width: 1048px) {
+        display: none;
+      }
+    }
+
+    .loading {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 30px;
+      width: 300px;
+    }
+    .link {
+      display: flex;
+      width: 500px;
+      justify-content: space-between;
+
+      a {
+        margin-top: 2px;
+        margin-bottom: 5px;
+        color: #4945ff;
+        text-align: center;
+        font-size: 16px;
+        font-weight: 500;
+      }
+    }
+    .buttons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column-reverse;
+    }
+    .alert {
+      color: #d61c4e;
+      font-family: Poppins;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 15px;
+      line-height: 22px;
+    }
+  }
+}
+
+.overlayModal {
+  position: fixed;
+  inset: 0px;
+  background-color: rgb(0 0 0 / 75%);
+}

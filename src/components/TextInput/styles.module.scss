@@ -1,0 +1,29 @@
+.textInput {
+  margin: 5px 0px;
+  display: flex;
+  flex-direction: column;
+  label {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 22px;
+    color: #1d1b84;
+    padding-bottom: 16px;
+  }
+  input {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 22px;
+    color: #4a4a6a;
+    width: 500px;
+    padding: 16px 20px;
+    background: #fff;
+    border: 2px solid #4945ff;
+    box-sizing: border-box;
+    border-radius: 8px;
+    font-weight: 500;
+  }
+}

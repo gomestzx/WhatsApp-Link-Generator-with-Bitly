@@ -1,24 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100;200;300;400;500;600;700;800;900&display=swap');
-
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif !important;
-  overflow-x: hidden;
-  background: url('/background.png'),
-    linear-gradient(
-      to bottom,
-      rgba(74, 144, 226, 0) 0%,
-      rgba(74, 144, 226, 0) 100%
-    );
-  background-position-x: 0%;
-  background-position-y: 0%;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: scroll;
+  font-family: 'Poppins', sans-serif !important;
   height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 a {
