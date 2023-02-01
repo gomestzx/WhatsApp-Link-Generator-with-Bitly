@@ -2,6 +2,7 @@
   margin: 5px 0px;
   display: flex;
   flex-direction: column;
+  width: 100%;
   label {
     font-family: Poppins;
     font-style: normal;
@@ -18,12 +19,12 @@
     font-size: 15px;
     line-height: 22px;
     color: #4a4a6a;
-    width: 500px;
     padding: 16px 20px;
     background: #fff;
     border: 2px solid #4945ff;
     box-sizing: border-box;
     border-radius: 8px;
     font-weight: 500;
+    outline: none;
   }
 }

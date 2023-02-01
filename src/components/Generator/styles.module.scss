@@ -26,57 +26,51 @@
     background-size: cover;
     flex-wrap: wrap;
     padding: 0;
-    .row {
-      margin: 0px 40px;
-      .form {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        border-radius: 10px;
-        padding: 30px;
-        @media screen and (max-width: 400px) {
-          padding: 0px;
-        }
-        .copy {
-          background-color: #865aed;
+    width: 100%;
 
-          font-weight: 500;
-          color: #fff;
-          &:hover {
-            background-color: #744ad4;
-          }
-        }
-        .qr {
-          background-color: #000;
+    .form {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      border-radius: 10px;
+      padding: 30px;
+      width: 80%;
+      @media screen and (max-width: 576px) {
+        width: 100%;
+      }
+      .copy {
+        background-color: #865aed;
 
-          font-weight: 500;
-          color: #fff;
-          &:hover {
-            background-color: #181111;
-          }
-        }
-        .reset {
-          background-color: transparent;
-          margin: 0px;
-          padding: 0;
-          font-weight: 500;
-          width: auto;
-          color: #181111;
-          font-size: 15px;
-          border-radius: 0;
-          border: 0;
-          box-shadow: none;
-          &:hover {
-            background-color: transparent;
-          }
+        font-weight: 500;
+        color: #fff;
+        &:hover {
+          background-color: #744ad4;
         }
       }
-    }
+      .qr {
+        background-color: #000;
 
-    .row:nth-child(2) {
-      @media screen and (max-width: 1048px) {
-        display: none;
+        font-weight: 500;
+        color: #fff;
+        &:hover {
+          background-color: #181111;
+        }
+      }
+      .reset {
+        background-color: transparent;
+        margin: 0px;
+        padding: 0;
+        font-weight: 500;
+        width: auto;
+        color: #181111;
+        font-size: 15px;
+        border-radius: 0;
+        border: 0;
+        box-shadow: none;
+        &:hover {
+          background-color: transparent;
+        }
       }
     }
 
@@ -89,7 +83,6 @@
     }
     .link {
       display: flex;
-      width: 500px;
       justify-content: space-between;
 
       a {
@@ -106,6 +99,7 @@
       align-items: center;
       justify-content: center;
       flex-direction: column-reverse;
+      width: 100%;
     }
     .alert {
       color: #d61c4e;

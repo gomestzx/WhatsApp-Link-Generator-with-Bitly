@@ -83,84 +83,82 @@ const LinkGenerator = () => {
   }, []);
 
   return (
-    <div className={styles.app} data-aos='fade-in'
-    data-aos-delay='50'
-    data-aos-duration='2500'>
+    <div
+      className={styles.app}
+      data-aos='fade-in'
+      data-aos-delay='50'
+      data-aos-duration='2500'
+    >
       <h1 className={styles.title}>Crie seu link profissional</h1>
       <h1 className={styles.title}>
         para <span>WhatsApp!</span>
       </h1>
       <div className={styles.container}>
-        <div
-          className={styles.row}
-          
-        >
-          <div className={styles.form}>
+        <div className={styles.form}>
+          {!link && (
+            <>
+              <TextInput
+                onChange={(e) => setPhone(maskPhone(e.target.value))}
+                value={phone}
+                placeholder='(DDD) 0 0000-0000'
+                label='Número'
+              />
+              <TextInput
+                onChange={(e) => setText(e.target.value)}
+                placeholder='Escreva seu texto aqui...'
+                value={text}
+                label='Mensagem'
+              />
+            </>
+          )}
+          {showLink && (
+            <>
+              {!loading && (
+                <>
+                  <div className={styles.link}>
+                    <label>Seu link 👉</label>
+                    <a href={link} target='_blank' rel='noreferrer'>
+                      {link}
+                    </a>
+                  </div>
+                </>
+              )}
+            </>
+          )}
+          <div className={styles.buttons}>
             {!link && (
-              <>
-                <TextInput
-                  onChange={(e) => setPhone(maskPhone(e.target.value))}
-                  value={phone}
-                  placeholder='(DDD) 0 0000-0000'
-                  label='Número'
-                />
-                <TextInput
-                  onChange={(e) => setText(e.target.value)}
-                  placeholder='Escreva seu texto aqui...'
-                  value={text}
-                  label='Mensagem'
-                />
-              </>
+              <Button
+                onClick={() => {
+                  generator();
+                }}
+                loading={loading && showLink}
+                value='Gerar link'
+              />
             )}
             {showLink && (
               <>
                 {!loading && (
                   <>
-                    <div className={styles.link}>
-                      <label>Seu link 👉</label>
-                      <a href={link} target='_blank' rel='noreferrer'>
-                        {link}
-                      </a>
-                    </div>
+                    <Button
+                      onClick={() => {
+                        reset();
+                      }}
+                      background='#fff'
+                      color='#000'
+                      value='ou gerar novo link'
+                    />
+                    <Button
+                      onClick={openModal}
+                      value='Gerar QR Code'
+                      background='#000'
+                    />
+                    <CopyButton textToCopy={link} />
                   </>
                 )}
               </>
             )}
-            <div className={styles.buttons}>
-              {!link && (
-                <Button
-                  onClick={() => {
-                    generator();
-                  }}
-                  loading={loading && showLink}
-                  value='Gerar link'
-                />
-              )}
-              {showLink && (
-                <>
-                  {!loading && (
-                    <>
-                      <Button
-                        onClick={() => {
-                          reset();
-                        }}
-                        background='#fff'
-                        color='#000'
-                        value='ou gerar novo link'
-                      />
-                      <Button
-                        onClick={openModal}
-                        value='Gerar QR Code'
-                        background='#000'
-                      />
-                      <CopyButton textToCopy={link} />
-                    </>
-                  )}
-                </>
-              )}
-            </div>
-            <div className={styles.alert}>{alertText}</div>
           </div>
+          <div className={styles.alert}>{alertText}</div>
         </div>
       </div>
       <Modal
