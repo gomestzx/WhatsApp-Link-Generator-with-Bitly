@@ -7,7 +7,7 @@ Ferramenta criada para melhorar a url dos links de redirecionamento para WhatsAp
 # Features
 
 - Encurtador de links usando a api do [Bitly](https://bitly.com)
-- Gerado de QR CODE
+- Gerador de QR CODE
 
 <br />
 
