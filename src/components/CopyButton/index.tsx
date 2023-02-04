@@ -9,10 +9,10 @@ interface ICopyButton {
 const CopyButton = (props: ICopyButton) => {
   const [text, setText] = useState<string>('COPY');
   const Copy = () => {
-    setText('COPIED 🎉');
+    setText('Copied 🎉');
     setTimeout(() => {
       setText('COPY');
-    }, 2500);
+    }, 1000);
   };
   return (
     <>

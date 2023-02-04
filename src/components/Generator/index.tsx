@@ -66,7 +66,6 @@ const LinkGenerator = () => {
       padding: '0px',
       backgroundColor: '#fff',
       borderRadius: '8px',
-      border: '2px solid #4945ff',
     },
   };
 
@@ -143,14 +142,14 @@ const LinkGenerator = () => {
                       onClick={() => {
                         reset();
                       }}
-                      background='#fff'
-                      color='#000'
+                      background='transparent'
+                      color='#fff'
                       value='ou gerar novo link'
                     />
                     <Button
                       onClick={openModal}
                       value='Gerar QR Code'
-                      background='#000'
+                      background='#4945ff'
                     />
                     <CopyButton textToCopy={link} />
                   </>

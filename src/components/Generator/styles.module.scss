@@ -9,7 +9,7 @@
     text-align: center;
     font-size: 50px;
     margin: 0;
-    color: #494848;
+    color: #fff;
     line-height: 120%;
     @media screen and (max-width: 800px) {
       font-size: 30px;
@@ -84,14 +84,20 @@
     .link {
       display: flex;
       justify-content: space-between;
-
+      label {
+        color: #fff;
+      }
       a {
         margin-top: 2px;
         margin-bottom: 5px;
-        color: #4945ff;
+        margin-left: 5px;
+        color: #fff;
+        background-color: #009f6a;
         text-align: center;
         font-size: 16px;
         font-weight: 500;
+        padding: 0px 5px;
+        border-radius: 8px;
       }
     }
     .buttons {
