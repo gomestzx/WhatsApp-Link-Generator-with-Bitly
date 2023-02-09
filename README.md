@@ -2,14 +2,10 @@
 
 Ferramenta criada para melhorar a url dos links de redirecionamento para WhatsApp
 
-<br />
-
 # Features
 
 - Encurtador de links usando a api do [Bitly](https://bitly.com)
 - Gerador de QR CODE
-
-<br />
 
 # Instalation
 
@@ -32,7 +28,6 @@ npm start
 # or
 yarn dev
 ```
-<br />
 
 # Screenshots
 
